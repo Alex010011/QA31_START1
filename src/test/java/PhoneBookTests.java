@@ -25,6 +25,7 @@ public class PhoneBookTests {
     public void phoneBookStart(){
 
        WebElement element = wd.findElement(By.tagName("a"));
+       wd.findElement(By.cssSelector("a"));
        element.click();
        element.clear();
        element.sendKeys("Hello");
@@ -32,10 +33,25 @@ public class PhoneBookTests {
        List<WebElement> list = wd.findElements(By.tagName("a"));
 
        WebElement elId = wd.findElement(By.id("root"));
+       wd.findElement(By.cssSelector("#root"));
+
+       wd.findElement(By.xpath("//*[@id='root']"));
+
        WebElement elClass = wd.findElement(By.className("container"));
+       wd.findElement(By.cssSelector(".container"));
+
+       wd.findElement(By.xpath("//*[@class='container'"));
+
        WebElement elName = wd.findElement(By.name("NameEx"));
+       wd.findElement(By.xpath("//*[@name = 'nameEx']"));
+       wd.findElement(By.xpath("[name ='nameEx']"));
+
+
        WebElement elLink = wd.findElement(By.linkText("HOME"));
        WebElement elPlink = wd.findElement(By.partialLinkText("HOM"));
+       wd.findElement(By.cssSelector("[href='/home']"));
+       wd.findElement(By.cssSelector("a[href='/home'"));
+       wd.findElement(By.xpath("//*[@href ='/home']"));
 
     }
 
@@ -46,6 +62,9 @@ public class PhoneBookTests {
         List <WebElement> list = wd.findElements(By.tagName("input"));
         WebElement inputEmail = list.get(0);
         WebElement inputPass = list.get(1);
+
+        wd.findElement(By.cssSelector("[placeholder='Email']"));
+        wd.findElement(By.cssSelector("[placeholder='Password']"));
 
         inputEmail.click();
         inputEmail.clear();
